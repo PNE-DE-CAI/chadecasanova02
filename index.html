@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>De Volta ao Lar | Convite e Lista de Presentes</title>
+<style>
+:root{--verde:#465b46;--verde-escuro:#26372b;--verde-claro:#82927b;--bege:#e7dcc8;--bege-claro:#f6f1e7;--branco:#fffdf8;--madeira:#8a5f3d;--madeira-clara:#b48762;--texto:#283029;--card:#fffdf8;--linha:#c8bca8;--sombra:rgba(48,38,27,.15)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bege-claro);color:var(--texto);font-family:Arial,Helvetica,sans-serif;line-height:1.5}button,input,textarea{font:inherit}.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(38,55,43,.96);border-bottom:3px solid var(--madeira);backdrop-filter:blur(8px);color:var(--branco)}nav{min-height:66px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font:400 1.25rem Georgia,serif;letter-spacing:.09em}.links{display:flex;gap:18px}.links a{color:var(--branco);text-decoration:none;text-transform:uppercase;font-size:.78rem;letter-spacing:.1em}
+.hero{min-height:80vh;display:grid;place-items:center;text-align:center;padding:70px 0;color:var(--branco);background:linear-gradient(rgba(38,55,43,.88),rgba(38,55,43,.92)),repeating-linear-gradient(90deg,var(--madeira) 0,var(--madeira) 2px,var(--madeira-clara) 2px,var(--madeira-clara) 7px)}.house{font-size:4rem;filter:grayscale(1);margin-bottom:10px}.eyebrow{text-transform:uppercase;letter-spacing:.38em;font-size:.75rem}.hero h1,.title{font-family:Georgia,'Times New Roman',serif;font-weight:400}.hero h1{font-size:clamp(3.5rem,9vw,7.5rem);line-height:.9;margin:18px 0}.tagline{font:1.25rem Georgia,serif;color:var(--bege)}.eventbox{display:inline-block;border:1px solid var(--bege);margin-top:30px;padding:18px 30px;min-width:min(600px,92vw)}
+section{padding:70px 0;border-top:1px solid var(--linha)}.title{font-size:clamp(2.2rem,5vw,3.8rem);margin:0 0 10px}.lead{color:#566258;max-width:760px;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.field label{display:block;color:var(--verde);text-transform:uppercase;font-size:.74rem;letter-spacing:.12em;margin-bottom:7px}.field input,.field textarea{width:100%;background:var(--branco);border:1px solid var(--linha);color:var(--texto);padding:13px}.field.full{grid-column:1/-1}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:1px solid var(--verde-escuro);background:var(--verde-escuro);color:var(--branco);padding:12px 16px;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;cursor:pointer}.btn.alt{background:var(--bege);color:var(--verde-escuro);border-color:var(--madeira)}.btn:hover{opacity:.78}
+.invite-preview{background:var(--branco);border:1px solid var(--madeira);color:var(--verde-escuro);box-shadow:0 14px 35px var(--sombra);padding:50px 35px;text-align:center;outline:1px solid var(--verde-claro);outline-offset:-14px;min-height:570px;display:flex;flex-direction:column;justify-content:center}.invite-preview h2{font:400 clamp(3rem,7vw,5.5rem)/.95 Georgia,serif;margin:18px 0}.invite-preview .details{margin:25px auto 0;border-top:1px solid var(--madeira-clara);border-bottom:1px solid var(--madeira-clara);padding:18px;width:min(620px,90%)}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:25px}.toolbar input{flex:1;min-width:230px;background:var(--branco);border:1px solid var(--linha);color:var(--texto);padding:12px}.progress{margin-left:auto;color:var(--verde)}.bar{height:8px;background:var(--bege);margin:12px 0 28px}.bar>div{height:100%;background:var(--verde);width:0;transition:.25s}
+.category{margin:24px 0}.category-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--linha);padding-bottom:10px}.category h3{font:400 1.8rem Georgia,serif;margin:0}.category p{color:#687469;margin:4px 0 0}.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:15px}.gift{background:var(--card);border:1px solid var(--linha);box-shadow:0 6px 18px var(--sombra);padding:16px;display:flex;flex-direction:column;min-height:158px}.gift.selected{border-color:var(--verde);background:#edf1e9}.gift.unavailable{opacity:.48}.gift-name{font-family:Georgia,serif;font-size:1.15rem}.gift-status{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#687469;margin:5px 0 auto}.gift-actions{display:flex;gap:7px;margin-top:15px}.gift-actions button,.gift-actions a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--madeira);background:var(--bege-claro);color:var(--verde-escuro);padding:8px 5px;font-size:.7rem;text-transform:uppercase;cursor:pointer}.gift-actions button:hover,.gift-actions a:hover{border-color:#fff}.gift.selected .choose{background:var(--verde);color:var(--branco)}.gift.unavailable .choose{pointer-events:none}
+.summary{position:fixed;right:18px;bottom:18px;width:min(380px,calc(100% - 36px));background:var(--branco);color:var(--texto);padding:18px;box-shadow:0 15px 40px var(--sombra);border:2px solid var(--madeira);z-index:30;display:none}.summary.open{display:block}.summary h3{font:400 1.4rem Georgia,serif;margin:0 0 8px}.summary ul{max-height:180px;overflow:auto;padding-left:20px}.summary .close{position:absolute;right:10px;top:8px;border:0;background:none;font-size:1.2rem;cursor:pointer}.summary .btn{width:100%;background:var(--verde-escuro);color:var(--branco)}
+.note{border-left:4px solid var(--madeira);background:var(--bege);padding:14px 17px;color:var(--texto)}.footer{text-align:center;color:var(--bege);background:var(--verde-escuro);padding:35px;border-top:5px solid var(--madeira)}
+@media(max-width:850px){.gifts{grid-template-columns:repeat(2,1fr)}.links{display:none}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.progress{width:100%;margin:0}.invite-preview{padding:40px 20px}}
+@media(max-width:540px){.gifts{grid-template-columns:1fr}.hero h1{font-size:3.7rem}.category-head{display:block}.actions .btn{width:100%}}
+@media print{header,.editor,.toolbar,.gift-actions,.summary,.no-print{display:none!important}body{background:#fff;color:#000}.hero,section{background:#fff;color:#000;padding:30px 0}.hero{min-height:auto}.eventbox,.invite-preview,.gift{border-color:#555;background:#fff;color:#000}.lead,.category p,.gift-status,.note{color:#222}.invite-preview{break-after:page}.gifts{grid-template-columns:repeat(3,1fr)}.gift.unavailable{display:none}.bar{border:1px solid #000}.bar>div{background:#000}.footer{color:#000}}
+.palette-strip{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;width:92%;margin:-24px auto 24px;position:relative;z-index:3;box-shadow:0 8px 25px var(--sombra);border:4px solid var(--branco)}.palette-strip span{padding:13px;text-align:center;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;font-weight:700}.title{color:var(--verde-escuro)}.category h3{color:var(--verde-escuro)}.gift-name{color:var(--verde-escuro)}
+@media(max-width:540px){.palette-strip{grid-template-columns:repeat(2,1fr);margin-top:-15px}}
+.gift-photo{height:190px;margin:-16px -16px 14px;position:relative;overflow:hidden;background:#e7dcc8;border-bottom:1px solid var(--linha)}.gift-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}.gift:hover .gift-photo img{transform:scale(1.035)}.photo-badge{position:absolute;left:8px;bottom:8px;background:rgba(38,55,43,.9);color:#fff;padding:5px 8px;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase}.photo-fallback{height:100%;display:grid;place-items:center;font-size:3.2rem;color:var(--verde);background:linear-gradient(135deg,var(--bege),var(--branco))}.photo-admin{display:none;margin-top:8px}.photo-admin.open{display:flex;gap:6px}.photo-admin input{width:100%;min-width:0;padding:7px;border:1px solid var(--linha);background:#fff}.photo-admin button{padding:7px;border:1px solid var(--madeira);background:var(--bege);cursor:pointer}.manage-photos{margin-left:auto}
+</style>
+</head>
+<body>
+<header><div class="container"><nav><div class="brand">DE VOLTA AO LAR</div><div class="links"><a href="#convite">Convite</a><a href="#presentes">Presentes</a><a href="#confirmacao">Confirmação</a></div></nav></div></header>
+
+<section class="hero"><div class="container"><div class="house">⌂</div><div class="eyebrow">Chá de Casa Nova</div><h1>De Volta<br>ao Lar</h1><div class="tagline">Novos começos, boas memórias e portas abertas.</div><div class="eventbox"><strong class="vNames">NOME DOS ANFITRIÕES</strong><br><span class="vEvent">DATA • HORÁRIO</span><br><span class="vPlace">SALÃO DE FESTAS • ENDEREÇO</span></div></div></section>
+<div class="palette-strip" aria-label="Paleta de cores">
+  <span style="background:#e7dcc8">Bege</span>
+  <span style="background:#465b46;color:#fff">Verde</span>
+  <span style="background:#fffdf8">Branco</span>
+  <span style="background:#8a5f3d;color:#fff">Madeira</span>
+</div>
+
+<section id="convite"><div class="container"><h2 class="title">Sistema de convite</h2><p class="lead">Preencha uma vez. O convite visual, o texto do WhatsApp e o pedido de confirmação serão atualizados automaticamente e salvos neste dispositivo.</p>
+<div class="grid editor">
+<div class="field"><label>Nomes dos anfitriões</label><input id="names" placeholder="Ex.: Ana e Carlos"></div><div class="field"><label>Data</label><input id="date" type="date"></div>
+<div class="field"><label>Horário</label><input id="time" type="time"></div><div class="field"><label>Salão de festas</label><input id="place" placeholder="Nome do salão"></div>
+<div class="field full"><label>Endereço</label><input id="address" placeholder="Rua, número, bairro e cidade"></div><div class="field"><label>WhatsApp</label><input id="phone" placeholder="5511999999999"></div>
+<div class="field"><label>Confirmar até</label><input id="deadline" type="date"></div><div class="field full"><label>Mensagem adicional</label><textarea id="message" rows="3" placeholder="Sua presença tornará este momento ainda mais especial."></textarea></div>
+</div>
+<div class="actions editor"><button class="btn" onclick="copyInvite()">Copiar convite</button><button class="btn alt" onclick="sendWhatsApp()">Enviar por WhatsApp</button><button class="btn alt" onclick="window.print()">Imprimir / PDF</button><button class="btn alt" onclick="clearEvent()">Limpar dados</button></div>
+<div class="invite-preview" style="margin-top:32px"><div class="eyebrow">Convite • Chá de Casa Nova</div><h2>DE VOLTA<br>AO LAR</h2><p>Queremos celebrar nosso novo lar ao lado de pessoas especiais.</p><div class="details"><strong class="vNames">NOME DOS ANFITRIÕES</strong><br><span class="vEvent">DATA • HORÁRIO</span><br><span class="vPlace">SALÃO DE FESTAS • ENDEREÇO</span><br><br>Confirmação até <span class="vDeadline">DATA</span><br><span class="vPhone">WHATSAPP</span></div><p class="vMessage">Sua presença tornará este momento ainda mais especial.</p></div>
+</div></section>
+
+<section id="presentes"><div class="container"><h2 class="title">Lista de presentes</h2><p class="lead">Cada convidado pode escolher um ou mais itens. A seleção fica salva neste navegador. O botão “Mercado Livre” abre uma busca pelo produto, sem vincular a escolha a um vendedor específico.</p>
+<div class="toolbar"><input id="search" placeholder="Buscar presente..." oninput="renderGifts()"><button class="btn alt" onclick="showSummary()">Ver minha seleção</button><button class="btn alt manage-photos" onclick="togglePhotoEditor()">Gerenciar fotos</button><div class="progress"><strong id="countAvailable">52</strong> itens disponíveis</div></div><div class="bar"><div id="progressBar"></div></div><div id="giftRoot"></div>
+<p class="note">As fotos iniciais são referências visuais de anúncios públicos do Mercado Livre. Use “Gerenciar fotos” para substituir qualquer imagem pela URL exata do produto desejado. Importante: este arquivo funciona sem servidor. Por isso, a reserva é registrada apenas no aparelho do convidado. Para impedir que duas pessoas escolham o mesmo item em aparelhos diferentes, publique uma versão conectada ao Firebase Firestore ou a uma planilha com automação.</p>
+</div></section>
+
+<section id="confirmacao"><div class="container"><h2 class="title">Confirmação de presença</h2><p class="lead">Use o botão para criar uma mensagem pronta com o nome do convidado, quantidade de adultos e presentes escolhidos.</p><div class="grid">
+<div class="field"><label>Nome do convidado</label><input id="guestName" placeholder="Nome completo"></div><div class="field"><label>Quantidade de adultos</label><input id="guestCount" type="number" min="1" max="10" value="1"></div>
+<div class="field full"><label>Observação</label><textarea id="guestNote" rows="3" placeholder="Ex.: restrição alimentar"></textarea></div></div><div class="actions"><button class="btn" onclick="confirmAttendance()">Confirmar pelo WhatsApp</button><button class="btn alt" onclick="copyConfirmation()">Copiar confirmação</button></div></div></section>
+
+<div class="summary" id="summary"><button class="close" onclick="hideSummary()">×</button><h3>Minha seleção</h3><div id="summaryContent"></div><button class="btn" onclick="goConfirm()">Continuar para confirmação</button></div>
+<footer class="footer">DE VOLTA AO LAR • CONVITE E LISTA DE PRESENTES</footer>
+
+<script>
+
+const categoryImages={
+'Cozinha':'https://http2.mlstatic.com/D_NQ_NP_2X_651151-MLA111119064387_052026-O.webp',
+'Lavanderia e Limpeza':'https://http2.mlstatic.com/D_NQ_NP_948609-MLU76352725932_052024-O.webp',
+'Banheiro':'https://http2.mlstatic.com/D_NQ_NP_945983-MLA91442022821_092025-O.webp',
+'Quarto e Organização':'https://http2.mlstatic.com/D_NQ_NP_948609-MLU76352725932_052024-O.webp',
+'Itens de maior valor':'https://http2.mlstatic.com/D_NQ_NP_906097-MLB91598955903_092025-O.webp'
+};
+const productImages={
+'Colheres de silicone':'https://http2.mlstatic.com/D_NQ_NP_2X_651151-MLA111119064387_052026-O.webp',
+'Espátula':'https://http2.mlstatic.com/D_NQ_NP_873843-MLA84908437824_052025-O.webp',
+'Concha':'https://http2.mlstatic.com/D_NQ_NP_999523-MLU75711675755_042024-O.webp',
+'Tábua de corte':'https://http2.mlstatic.com/D_NQ_NP_906097-MLB91598955903_092025-O.webp',
+'Kit para banheiro':'https://http2.mlstatic.com/D_NQ_NP_945983-MLA91442022821_092025-O.webp',
+'Porta-sabonete':'https://http2.mlstatic.com/D_NQ_NP_705155-MLU76817623766_062024-O.webp',
+'Porta-escovas':'https://http2.mlstatic.com/D_NQ_NP_705155-MLU76817623766_062024-O.webp',
+'Organizador de produtos':'https://http2.mlstatic.com/D_NQ_NP_948609-MLU76352725932_052024-O.webp'
+};
+let customImages=JSON.parse(localStorage.getItem('lar_product_images')||'{}');
+let photoEditor=false;
+function imageFor(name,category){return customImages[name]||productImages[name]||categoryImages[category]||''}
+function togglePhotoEditor(){photoEditor=!photoEditor;renderGifts()}
+function savePhoto(name){const field=document.getElementById('photo-'+slug(name));const url=field.value.trim();if(url)customImages[name]=url;else delete customImages[name];localStorage.setItem('lar_product_images',JSON.stringify(customImages));renderGifts()}
+function imageError(img,category){img.style.display='none';const f=img.nextElementSibling;if(f)f.style.display='grid'}
+
+const categories=[
+{icon:'🍽️',name:'Cozinha',note:'Utensílios para o dia a dia.',items:['Jogo de copos','Jogo de xícaras','Pratos','Talheres','Potes de vidro','Escorredor de macarrão','Tábua de corte','Colheres de silicone','Espátula','Concha','Abridor de latas','Ralador','Peneira','Jarras','Assadeiras','Formas para bolo','Travessas','Panos de prato','Avental','Luvas térmicas']},
+{icon:'🧺',name:'Lavanderia e Limpeza',note:'Organização e cuidado com a casa.',items:['Balde','Vassoura','Rodo','Pá','Panos de chão','Cesto de roupa','Pregadores','Varal móvel','Escova de limpeza','Lixeira','Organizador de produtos']},
+{icon:'🛁',name:'Banheiro',note:'Itens úteis para organização e conforto.',items:['Jogo de toalhas','Tapete','Porta-sabonete','Porta-escovas','Cesto de lixo','Organizador','Kit para banheiro']},
+{icon:'🛏️',name:'Quarto e Organização',note:'Conforto e organização do novo lar.',items:['Jogo de cama','Travesseiros','Cabides','Caixas organizadoras','Manta','Protetor de colchão']},
+{icon:'🎁',name:'Itens de maior valor',note:'Podem ser oferecidos por grupos de amigos e familiares.',items:['Liquidificador','Sanduicheira','Cafeteira','Ferro de passar','Ventilador','Jogo de panelas','Aspirador portátil','Air fryer']}
+];
+const all=categories.flatMap(c=>c.items.map(x=>({name:x,category:c.name})));
+let selected=JSON.parse(localStorage.getItem('lar_selected')||'[]');
+let unavailable=JSON.parse(localStorage.getItem('lar_unavailable')||'[]');
+function slug(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+function mlLink(name){return 'https://lista.mercadolivre.com.br/'+slug(name+' preto casa')}
+function renderGifts(){const term=document.getElementById('search').value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');let out='';categories.forEach(c=>{let items=c.items.filter(n=>n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(term));if(!items.length)return;out+=`<div class="category"><div class="category-head"><div><h3>${c.icon} ${c.name}</h3><p>${c.note}</p></div><span>${items.length} itens</span></div><div class="gifts">`;items.forEach(name=>{let sel=selected.includes(name),off=unavailable.includes(name);out+=`<article class="gift ${sel?'selected':''} ${off?'unavailable':''}"><div class="gift-photo"><img loading="lazy" src="${imageFor(name,c.name)}" alt="Imagem de referência: ${name}" onerror="imageError(this,'${c.name}')"><div class="photo-fallback" style="display:none">${c.icon}</div><span class="photo-badge">Imagem de referência</span></div><div class="gift-name">${name}</div><div class="gift-status">${off?'Indisponível':sel?'Selecionado':'Disponível'}</div><div class="gift-actions"><button class="choose" onclick="toggleGift('${name.replaceAll("'","\\'")}')">${sel?'Remover':'Escolher'}</button><a href="${mlLink(name)}" target="_blank" rel="noopener">Mercado Livre</a></div><div class="photo-admin ${photoEditor?'open':''}"><input id="photo-${slug(name)}" value="${customImages[name]||''}" placeholder="Cole a URL da foto exata"><button onclick="savePhoto('${name.replaceAll("'","\\'")}')">Salvar</button></div></article>`});out+='</div></div>'});document.getElementById('giftRoot').innerHTML=out;document.getElementById('countAvailable').textContent=all.length-unavailable.length;document.getElementById('progressBar').style.width=(unavailable.length/all.length*100)+'%'}
+function toggleGift(name){if(unavailable.includes(name))return;selected=selected.includes(name)?selected.filter(x=>x!==name):[...selected,name];localStorage.setItem('lar_selected',JSON.stringify(selected));renderGifts();updateSummary()}
+function updateSummary(){document.getElementById('summaryContent').innerHTML=selected.length?'<ul>'+selected.map(x=>`<li>${x}</li>`).join('')+'</ul>':'<p>Nenhum presente selecionado.</p>'}
+function showSummary(){updateSummary();document.getElementById('summary').classList.add('open')}function hideSummary(){document.getElementById('summary').classList.remove('open')}function goConfirm(){hideSummary();location.hash='confirmacao'}
+const fields=['names','date','time','place','address','phone','deadline','message'];fields.forEach(id=>{let e=document.getElementById(id);e.value=localStorage.getItem('lar_'+id)||'';e.addEventListener('input',()=>{localStorage.setItem('lar_'+id,e.value);updateEvent()})});
+function val(id,f){return document.getElementById(id).value||f}function dateBR(s){if(!s)return 'DATA';let [y,m,d]=s.split('-');return `${d}/${m}/${y}`}
+function updateEvent(){let n=val('names','NOME DOS ANFITRIÕES'),ev=dateBR(val('date',''))+' • '+val('time','HORÁRIO'),pl=val('place','SALÃO DE FESTAS')+' • '+val('address','ENDEREÇO');document.querySelectorAll('.vNames').forEach(e=>e.textContent=n);document.querySelectorAll('.vEvent').forEach(e=>e.textContent=ev);document.querySelectorAll('.vPlace').forEach(e=>e.textContent=pl);document.querySelectorAll('.vDeadline').forEach(e=>e.textContent=dateBR(val('deadline','')));document.querySelectorAll('.vPhone').forEach(e=>e.textContent=val('phone','WHATSAPP'));document.querySelectorAll('.vMessage').forEach(e=>e.textContent=val('message','Sua presença tornará este momento ainda mais especial.'))}
+function inviteText(){return `🏠 DE VOLTA AO LAR\nChá de Casa Nova\n\nQueremos celebrar nosso novo lar ao lado de pessoas especiais.\n\n👤 ${val('names','NOME DOS ANFITRIÕES')}\n📅 ${dateBR(val('date',''))}\n⏰ ${val('time','HORÁRIO')}\n📍 ${val('place','SALÃO DE FESTAS')}\n${val('address','ENDEREÇO')}\n\n${val('message','Sua presença tornará este momento ainda mais especial.')}\n\nConfirme até ${dateBR(val('deadline',''))}.`}
+function copyInvite(){navigator.clipboard.writeText(inviteText()).then(()=>alert('Convite copiado.'))}function phone(){return val('phone','').replace(/\D/g,'')}function sendWhatsApp(){let p=phone();if(!p)return alert('Informe o WhatsApp dos anfitriões.');window.open('https://wa.me/'+p+'?text='+encodeURIComponent(inviteText()),'_blank')}
+function confirmationText(){let gifts=selected.length?selected.join(', '):'a definir';return `Olá! Confirmo minha presença no chá de casa nova “De Volta ao Lar”.\n\nNome: ${val('guestName','CONVIDADO')}\nAdultos: ${val('guestCount','1')}\nPresente(s) escolhido(s): ${gifts}\nObservação: ${val('guestNote','Nenhuma')}`}
+function confirmAttendance(){let p=phone();if(!p)return alert('O WhatsApp dos anfitriões ainda não foi informado.');window.open('https://wa.me/'+p+'?text='+encodeURIComponent(confirmationText()),'_blank')}
+function copyConfirmation(){navigator.clipboard.writeText(confirmationText()).then(()=>alert('Confirmação copiada.'))}
+function clearEvent(){if(confirm('Apagar os dados do convite?')){fields.forEach(id=>{localStorage.removeItem('lar_'+id);document.getElementById(id).value=''});updateEvent()}}
+renderGifts();updateEvent();updateSummary();
+</script>
+</body></html>
